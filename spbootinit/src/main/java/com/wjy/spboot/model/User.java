@@ -10,6 +10,7 @@
  */
 package com.wjy.spboot.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -34,6 +35,15 @@ public class User {
     private String password;
     private Date birthday;
     private boolean gender;
+    private Address address;
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
     @Override
     public String toString() {
@@ -43,6 +53,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ", birthday=" + birthday +
                 ", gender=" + gender +
+                ", address=" + address +
                 ", roles=" + roles +
                 ", parents=" + parents +
                 '}';
