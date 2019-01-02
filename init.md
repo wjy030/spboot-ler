@@ -15,7 +15,7 @@ public class SpbootInit {
 ## spring boot 快速建立项目
 * idea 新建项目时选择Spring Initializer
 ## spring boot 配置文件
-* application.properties **文件名固定**  里面配置server.port=80就可以修改启动端口号
+* application.properties/application.yml **文件名固定这两种**  里面配置server.port=80就可以修改启动端口号
 ## spring boot 推荐目录结构
 * static存放静态资源
 * template存放模板
