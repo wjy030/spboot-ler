@@ -1,4 +1,11 @@
 server:
   port: 8011
-  servlet:
-    context-path:
+user:
+  id: 100
+  name: wjy
+  birthday: 2011/11/11
+  gender: true
+  password: 123456
+  parents: {father: Jack,Mother: Mary}
+  roles: [admin,customer]
+
