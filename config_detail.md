@@ -24,3 +24,46 @@ Mother=94613c548a6c99e46756aafc9660dd2d, Grandpa=park}}
 ## 变量使用
 * ${user.username} 使用容器中bean的成员变量
 * ${aaa:park} 使用aaa属性,如果没有aaa属性则使用默认值park
+## profile 使用
+系统会运行在正式,测试等多种环境下,需要多套配置,可以使用profile准备多套配置,激活想要使用的配置
+### properties
+* properties默认配置文件application.properties,可以准备application-test.properties,application-produce.properties两套文件,
+在application.properties中配置spring.profiles.active=test 则会激活application-test.properties,配置spring.profiles.active=produce激活
+application-produce.properties文件
+* 附属配置文件名格式为application-配置名.properties
+### yaml
+* yaml通过文档块实现profile
+```
+server:
+  port: 8011
+spring:
+  profiles:
+    active: test
+  
+---
+server:
+  port: 8022
+spring:
+  profiles: test
+  
+---
+server:
+  port: 8033
+spring:
+  profiles: produce
+```
+不同文档块以 --- 分隔
+```
+spring:
+  profiles: produce 
+```
+定义所在文档块的名称
+```
+spring:
+  profiles:
+    active: test
+```
+定义激活的文档块
+## 通过命令激活文档块
+* 在启动参数program arguments 中加上--spring.profiles.active=test
+* 在vm参数 VM options 中加上 -Dspring.profiles.active=test
