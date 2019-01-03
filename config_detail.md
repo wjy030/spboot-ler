@@ -21,7 +21,7 @@ Mother=94613c548a6c99e46756aafc9660dd2d, Grandpa=park}}
 * ${random.value} 随机字符串
 * ${random.uuid} 随机uuid
 * ${random.int(10)} 1到9的随机整数
-## 变量使用
+### 变量使用
 * ${user.username} 使用容器中bean的成员变量
 * ${aaa:park} 使用aaa属性,如果没有aaa属性则使用默认值park
 ## profile 使用
@@ -70,3 +70,4 @@ spring:
 ## 注意
 **激活的profile和默认主配置文件中的配置会同时起效,激活的profile中的配置有最高的优先级**  
 **通过命令行激活的优先级比在文档中激活的优先级高**
+## 
