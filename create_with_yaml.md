@@ -35,3 +35,15 @@ public class Address {
     private String address;
 ```
 所以spring bean对应的属性不一定必须是顶级属性
+## 根据@ConfigurationProperties生成spring bean时是支持jsr303数据交验的
+```
+@ConfigurationProperties(prefix = "user")
+@Component
+@Validated
+public class User {
+
+    private int id;
+    @NotEmpty
+    private String name;
+```
+@NotEmpty会起作用
