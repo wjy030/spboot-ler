@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 〈一句话功能简述〉<br> 
+ * 〈一句话功能简述〉<br>
  * 〈用户〉
  *
  * @author wjy
@@ -30,16 +30,17 @@ import java.util.Map;
 public class User {
 
     private int id;
-    private String name;
+    private String username;
     private String password;
     private Date birthday;
     private boolean gender;
+    private Address address;
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", birthday=" + birthday +
                 ", gender=" + gender +
@@ -67,12 +68,12 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {

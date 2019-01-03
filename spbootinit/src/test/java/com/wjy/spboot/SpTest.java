@@ -35,6 +35,6 @@ public class SpTest {
 
     @Test
     public void init() {
-        System.out.println(user);
+        System.out.println("***************"+user);
     }
 }
