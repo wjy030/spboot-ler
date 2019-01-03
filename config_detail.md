@@ -80,4 +80,5 @@ application.properties/application.yml 在不同的目录下可以存在多个,*
 ## 配置项
 spring boot 2.0.7版本常用配置项介绍:https://docs.spring.io/spring-boot/docs/2.0.7.RELEASE/reference/htmlsingle/ 中的X. Appendices  
 其中的配置都是通过@Configuration+@Bean实现的.  
-spring boot 默认的配置类并不会全部加载. 会通过@ConditionalXXX 注解判断,只有满足条件的配置类才会加载
+spring boot 默认的配置类并不会全部加载. 会通过@ConditionalXXX 注解判断,只有满足条件的配置类才会加载  
+要看哪些配置类会被加载,只要在全局配置文件中加入debug=true
