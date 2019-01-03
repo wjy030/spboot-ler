@@ -41,9 +41,17 @@ public class Address {
 @Component
 @Validated
 public class User {
-
     private int id;
     @NotEmpty
     private String name;
 ```
 @NotEmpty会起作用
+## 读取额外配置文件
+@ConfigurationProperties 默认只会读取主配置文件(application.properties/application.yml)中的数据,要想让其可以读取其他的配置文件
+可以使用@PropertySource注解
+```
+@ConfigurationProperties(prefix = "user")
+@Component
+@PropertySource("classpath:extra.yml")
+public class User {
+```
