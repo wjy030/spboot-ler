@@ -27,9 +27,9 @@ Mother=94613c548a6c99e46756aafc9660dd2d, Grandpa=park}}
 ## profile 使用
 系统会运行在正式,测试等多种环境下,需要多套配置,可以使用profile准备多套配置,激活想要使用的配置
 ### properties
-* properties默认配置文件application.properties,可以准备application-test.properties,application-produce.properties两套文件,
+#* properties默认配置文件application.properties,可以准备application-test.properties,application-produce.properties两套文件,
 在application.properties中配置spring.profiles.active=test 则会激活application-test.properties,配置spring.profiles.active=produce激活
-application-produce.properties文件
+application-produce.properties文
 * 附属配置文件名格式为application-配置名.properties
 ### yaml
 * yaml通过文档块实现profile
@@ -77,3 +77,7 @@ application.properties/application.yml 在不同的目录下可以存在多个,*
 * 第三优先级: 项目根目录/application.properties
 * 第四优先级: 类路径(也就是classes目录下)/config/application.properties
 * 第五优先级: 类路径/application.properties
+## 配置项
+spring boot 2.0.7版本常用配置项介绍:https://docs.spring.io/spring-boot/docs/2.0.7.RELEASE/reference/htmlsingle/ 中的X. Appendices  
+其中的配置都是通过@Configuration+@Bean实现的.  
+spring boot 默认的配置类并不会全部加载. 会通过@ConditionalXXX 注解判断,只有满足条件的配置类才会加载
