@@ -23,4 +23,26 @@ public ServletRegistrationBean getBean() {
 }
 ```
 在配置类中通过以上方法注册servlet组件
-##
+## 整合filter的两种方式
+### 通过@WebFilter和@ServletComponentScan注解
+```
+@WebFilter(urlPatterns = "/first")
+public class FirstServlet extends HttpServlet {
+```
+通过@WebFilter定义Filter组件
+```
+@SpringBootApplication
+@ServletComponentScan
+public class SpbootInit {
+```
+主启动类加上@ServletComponentScan注解使之能扫描Filter组件
+### 通过方法
+```
+@Bean
+public FilterRegistrationBean getFilter() {
+    FilterRegistrationBean bean = new FilterRegistrationBean(new SecondFilter());
+    bean.addUrlPatterns("/*");
+    return bean;
+}
+```
+在配置类中通过以上方法注册Filter组件
