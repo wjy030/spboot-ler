@@ -67,3 +67,6 @@ spring:
 ## 通过命令激活文档块
 * 在启动参数program arguments 中加上--spring.profiles.active=test
 * 在vm参数 VM options 中加上 -Dspring.profiles.active=test
+## 注意
+**激活的profile和默认主配置文件中的配置会同时起效,激活的profile中的配置有最高的优先级**  
+**通过命令行激活的优先级比在文档中激活的优先级高**
