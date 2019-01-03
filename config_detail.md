@@ -70,4 +70,10 @@ spring:
 ## 注意
 **激活的profile和默认主配置文件中的配置会同时起效,激活的profile中的配置有最高的优先级**  
 **通过命令行激活的优先级比在文档中激活的优先级高**
-## 
+## 多配置文件下的优先级
+application.properties/application.yml 在不同的目录下可以存在多个,**这些文件会同时生效,但不同位置的文件优先级有区别**:
+* 最高优先级: 通过命令行指定 --spring.config.location=x:xxx/application.properties
+* 第二优先级: 项目根目录/config/application.properties
+* 第三优先级: 项目根目录/application.properties
+* 第四优先级: 类路径(也就是classes目录下)/config/application.properties
+* 第五优先级: 类路径/application.properties
