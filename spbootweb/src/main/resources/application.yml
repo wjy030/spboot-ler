@@ -1,0 +1,29 @@
+server:
+  port: 8011
+user:
+  id: ${random.int}
+  username: ${random.value}
+  birthday: 2011/11/11
+  gender: true
+  password: ${random.uuid}
+  parents:
+    Father: ${random.int(10)}
+    Mother: ${user.name}
+    Grandpa: ${aaa:park}
+  roles: [admin,customer]
+spring:
+  profiles:
+    active: test
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+---
+server:
+  port: 8022
+
+---
+server:
+  port: 8033
+spring:
+  profiles: produce
