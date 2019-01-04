@@ -5,3 +5,4 @@
 ## [引入其他springbean定义文件](extra_xml.md)
 ## [配置文件详细使用](config_detail.md)
 ## [整合servlet,filter,listener](servlet_filter_listener.md)
+## [整合静态资源](static.md)
