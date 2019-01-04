@@ -44,3 +44,8 @@ public String index(Model model) {
 ```
 **@GetpMapping注解,及类似的@PostMapping等注解是RequestMapping注解的简化版**
 ## idea中使用jsp注意
+idea中使用jsp模板需要做些配置,不然会报404.
+![配置1](ps.png)
+配置web resource directory
+![配置2](rd.png)
+如果项目是一个module,则要在运行配置中修改working directory为module的路径
