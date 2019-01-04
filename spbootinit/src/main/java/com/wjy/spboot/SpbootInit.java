@@ -10,10 +10,14 @@
  */
 package com.wjy.spboot;
 
+import com.wjy.spboot.filter.SecondFilter;
+import com.wjy.spboot.listener.FirstListener;
 import com.wjy.spboot.servlet.SecondServlet;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 
@@ -37,6 +41,17 @@ public class SpbootInit {
         ServletRegistrationBean bean = new ServletRegistrationBean();
         bean.setServlet(new SecondServlet());
         bean.addUrlMappings("/second");
+        return bean;
+    }
+    @Bean
+    public FilterRegistrationBean getFilter() {
+        FilterRegistrationBean bean = new FilterRegistrationBean(new SecondFilter());
+        bean.addUrlPatterns("/*");
+        return bean;
+    }
+    @Bean
+    public ServletListenerRegistrationBean getListener() {
+        ServletListenerRegistrationBean bean = new ServletListenerRegistrationBean(new FirstListener());
         return bean;
     }
 }
