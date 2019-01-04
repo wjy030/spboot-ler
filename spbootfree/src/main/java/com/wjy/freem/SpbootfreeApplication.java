@@ -1,4 +1,4 @@
-package com.wjy.freem.spbootfree;
+package com.wjy.freem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
