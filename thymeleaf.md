@@ -47,7 +47,7 @@ thymeleaf使用的文件仍然是html，在html文件中html元素上引入对�
     <div th:case="3">我是3</div>
 </div>
 ```
-### 迭代
+### List 迭代
 ```
 <div th:each="u:${users}">
     <div th:text="${u.username}"></div>
@@ -103,4 +103,11 @@ thymeleaf提供了内置变量: #httpServletRequest,session,application
 ``req.setAttribute("req001","req请求");`` 对应 ``<div th:text="${#httpServletRequest.getAttribute('req001')}"></div>``.
 ``session.setAttribute("ses","session请求");`` 对应 ``<div th:text="${session.ses}"></div>``
 ``session.getServletContext().setAttribute("sc","application请求");`` 对应 ``<div th:text="${application.sc}"></div>``
-
+### URL 类型
+```
+<a th:href="@{http://www.baidu.com}">绝对路径</a>
+<a th:href="@{/show}">相对路径(相对当前项目)</a>
+<a th:href="@{~/project1/show}">相对路径(相对当前服务器的根)</a>
+<a th:href="@{/show(id=1,name=zhangsan)}">传参</a>
+<a th:href="@{/path/{id}/show(id=1,name=zhangsan)}">restful风格传参</a> //解析结果为 /path/1/show?name=zhangsan
+```
