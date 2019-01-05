@@ -7,3 +7,6 @@
 ## [整合servlet,filter,listener](servlet_filter_listener.md)
 ## [整合静态资源](static.md)
 ## [整合jsp](jsp.md)
+## [整合freemarker](freemarker.md)
+## [整合thymeleaf](thymeleaf.md)
+## [springmvc扩展配置](springmvc_expand.md)
