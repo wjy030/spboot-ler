@@ -10,3 +10,4 @@
 ## [整合freemarker](freemarker.md)
 ## [整合thymeleaf](thymeleaf.md)
 ## [springmvc扩展配置](springmvc_expand.md)
+## [整合jdbc](jdbc.md)
