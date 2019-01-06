@@ -85,3 +85,5 @@ public FilterRegistrationBean getFilter() {
 ```
 WebStatFilter 实现了druid对web应用的数据库访问监控  
 StatViewServlet 实现对druid监控平台的访问
+## 访问druid
+http://localhost:8080/druid/login.html
