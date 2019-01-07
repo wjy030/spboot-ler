@@ -12,3 +12,4 @@
 ## [springmvc扩展配置](springmvc_expand.md)
 ## [整合jdbc](jdbc.md)
 ## [整合druid](druid.md)
+## [整合mybatis](mybatis.md)

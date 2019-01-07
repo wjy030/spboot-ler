@@ -57,3 +57,33 @@ public DataSource dataSource() {
 }
 ```
 @ConfigurationProperties(prefix = "druid") 将全局配置中druid前缀的属性注入到创建的对象中
+# druid监控配置
+需要配置Servlet和Filter
+```
+@Bean
+public ServletRegistrationBean getServlet() {
+    ServletRegistrationBean bean = new ServletRegistrationBean(new StatViewServlet());
+    bean.addUrlMappings("/druid/*");
+    Map initParams = new HashMap();
+    initParams.put("loginUsername","admin");  //登录用户名
+    initParams.put("loginPassword","123456"); //登录密码
+    initParams.put("allow","");  //允许连接的ip地址
+//        initParams.put("deny",""); //不允许连接的ip地址
+    bean.setInitParameters(initParams);
+    return bean;
+}
+
+@Bean
+public FilterRegistrationBean getFilter() {
+    FilterRegistrationBean bean = new FilterRegistrationBean(new WebStatFilter());
+    bean.addUrlPatterns("/*");
+    Map initParams = new HashMap();
+    initParams.put("exclusions","*.js,*.css,*.jpg,*.png,/druid/*"); //访问这些地址不会被druid监控
+    bean.setInitParameters(initParams);
+    return bean;
+}
+```
+WebStatFilter 实现了druid对web应用的数据库访问监控  
+StatViewServlet 实现对druid监控平台的访问
+## 访问druid
+http://localhost:8080/druid/login.html
