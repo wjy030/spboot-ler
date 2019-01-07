@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:if="${con1}=='yes'">
+    <span th:text="${say}"></span>
+</div>
+<div th:if="${con2}=='yes'">
+    <span th:text="${say}"></span>
+</div>
+<div th:switch="${user.id}">
+    <div th:case="1">我是1</div>
+    <div th:case="2">我是2</div>
+    <div th:case="3">我是3</div>
+</div>
+<div th:each="u:${users}">
+    <div th:text="${u.username}"></div>
+    <div th:text="${u.password}"></div>
+</div>
+<div th:each="u,var:${users}">
+    <div th:text="${u.username}"></div>
+    <div th:text="${u.password}"></div>
+    <div th:text="${var.index}"></div>
+    <div th:text="${var.count}"></div>
+    <div th:text="${var.size}"></div>
+    <div th:text="${var.even}"></div>
+    <div th:text="${var.odd}"></div>
+    <div th:text="${var.first}"></div>
+    <div th:text="${var.last}"></div>
+</div>
+<div th:each="e:${map}">
+    <div th:each="ent:${e}" th:text="${ent.key}"></div>
+    <div th:each="ent:${e}" th:text="${ent.value}"></div>
+</div>
+<div th:text="${#httpServletRequest.getAttribute('req001')}"></div>
+<div th:text="${session.ses}"></div>
+<div th:text="${application.sc}"></div>
+<a th:href="@{http://www.baidu.com}">绝对路径</a>
+<a th:href="@{/show}">相对路径(相对当前项目)</a>
+<a th:href="@{~/project1/show}">相对路径(相对当前服务器的根)</a>
+<a th:href="@{/show(id=1,name=zhangsan)}">传参</a>
+<a th:href="@{/path/{id}/show(id=1,name=zhangsan)}">restful风格传参</a>
+</body>
+</html>

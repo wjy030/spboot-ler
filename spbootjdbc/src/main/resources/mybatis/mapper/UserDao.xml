@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wjy.jdbc.dao.UserDao">
+    <update id="update" parameterType="com.wjy.jdbc.Model.User">
+        update sb_user set
+        <if test="code != null">
+        code = #{code},
+        </if>
+        <if test="name != null">
+        name=#{name}
+        </if>
+        where id = #{id}
+    </update>
+    <delete id="delete" parameterType="int">
+        delete from sb_user where id = #{id}
+    </delete>
+    <select id="select" resultType="com.wjy.jdbc.Model.User">
+        select * from sb_user where 1=1
+        <if test="code != null">
+            and code = #{code}
+        </if>
+        <if test="name != null">
+            and name = #{name}
+        </if>
+    </select>
+    <insert id="add" parameterType="com.wjy.jdbc.Model.User">
+        insert into sb_user(
+        <if test="id != null">
+        id,
+        </if>
+        <if test="code != null">
+        code,
+        </if>
+        <if test="name != null">
+        name
+        </if>
+        ) values (
+        <if test="id != null">
+            #{id},
+        </if>
+        <if test="code != null">
+            #{code},
+        </if>
+        <if test="name != null">
+            #{name}
+        </if>
+        )
+    </insert>
+
+</mapper>
