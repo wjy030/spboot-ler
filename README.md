@@ -13,3 +13,4 @@
 ## [整合jdbc](jdbc.md)
 ## [整合druid](druid.md)
 ## [整合mybatis](mybatis.md)
+## [整合jpa](jpa.md)
