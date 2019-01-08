@@ -12,6 +12,8 @@ package com.wjy.login.controller;
 
 import com.wjy.login.model.User;
 import com.wjy.login.service.UserService;
+import com.wjy.mystarter.HelloService;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.Assert;
@@ -34,6 +36,8 @@ import java.util.Objects;
 public class LoginController {
 
     @Resource
+    private HelloService helloService;
+    @Resource
     private UserService userService;
 
     @GetMapping("/login")
@@ -50,6 +54,11 @@ public class LoginController {
         return "index";
     }
 
+    @GetMapping("/wel")
+    public String wel() {
+        helloService.service("天河");
+        return "wel";
+    }
     @PostMapping("/login")
     public String doLogin(User user, HttpSession session, Model model) {
         try {
