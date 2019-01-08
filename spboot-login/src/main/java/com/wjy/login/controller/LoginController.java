@@ -15,11 +15,14 @@ import com.wjy.login.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.Assert;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.util.Objects;
 
 /**
@@ -51,10 +54,13 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String doLogin(User user, HttpSession session, Model model) {
+    public String doLogin(@Valid User users, BindingResult errors, HttpSession session, Model model) {
         try {
-            User u = userService.getUserByName(user.getUsername());
-            Assert.state(Objects.equals(user.getPassword(), u.getPassword()), "密码错误");
+            if(errors.getErrorCount() > 0) {
+                return "login";
+            }
+            User u = userService.getUserByName(users.getUsername());
+            Assert.state(Objects.equals(users.getPassword(), u.getPassword()), "密码错误");
             session.setAttribute("user", u);
             return "redirect:index";
         } catch (Exception e) {
