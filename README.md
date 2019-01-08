@@ -17,3 +17,4 @@
 ## [spring boot事务管理](transaction.md)
 ## [jsr数据验证](jsr.md)
 ## [servlet容器配置](servlet_container.md)
+## [国际化](locale.md)
