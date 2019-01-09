@@ -19,3 +19,4 @@
 ## [servlet容器配置](servlet_container.md)
 ## [国际化](locale.md)
 ## [自定义启动器](starter.md)
+## [spring boot 监控报告使用](actuator.md)
