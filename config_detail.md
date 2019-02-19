@@ -65,7 +65,7 @@ spring:
 ```
 定义激活的文档块
 ## 通过命令激活文档块
-* 在启动参数program arguments 中加上--spring.profiles.active=test
+* 在启动参数program arguments 中加上--spring.profiles.active=test 最高优先级
 * 在vm参数 VM options 中加上 -Dspring.profiles.active=test
 ## 注意
 **激活的profile和默认主配置文件中的配置会同时起效,激活的profile中的配置有最高的优先级**  
